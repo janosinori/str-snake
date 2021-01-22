@@ -73,7 +73,7 @@ export default class Piece implements IPiece {
     this.el.classList.add(this.direction);
   };
   isCollidingWith(node: Piece | null): boolean{
-    if(node===null){
+    if(node==null){
       return false;
     }
     else {
