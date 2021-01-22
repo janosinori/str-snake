@@ -16,6 +16,17 @@ export default abstract class BaseGame implements IBaseGame {
 
     protected noClip: boolean = false;
 
+    /***MEGOLDAS ***/
+    head: Piece;
+    tail: Piece;
+    food: Piece | null;
+    goldenApple: Piece | null;
+    length: number;
+    growth:number;
+    score:number;
+    currentLevel:Level | null;
+    garden: HTMLDivElement;
+
     /**
      * @returns {number}
      * Egy random számot szorozz meg a this.level.length -el, 
