@@ -44,8 +44,6 @@ export default class Game extends BaseGame {
 
     /*** MEGOLDAS ***/
     removeGrid(): void {
-        let vertical = document.querySelectorAll('.vertical-grid');
-        let horizontal = document.querySelectorAll('.horizontal-grid');
         let grids = document.querySelectorAll('.vertical-grid,.horizontal-grid');
         grids.forEach(item => Utils.removeNode(item));
         this.gridVisible = false;
