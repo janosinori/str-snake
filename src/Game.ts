@@ -30,7 +30,7 @@ export default class Game extends BaseGame {
 
     /*** MEGOLDAS ***/
     getRandomLevel(): Level {
-        let index = Math.round(Math.random() * this.levels.length);
+        let index = Math.floor(Math.random() * this.levels.length);
         return this.levels[index];
     }
 
