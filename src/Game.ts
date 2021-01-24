@@ -195,7 +195,7 @@ export default class Game extends BaseGame {
             }
 
             this.updateScore(type === 'food' ? 1 : -2); // Calculate the new score
-            
+
             this.showScore(); // Update the score
         }
     }
@@ -263,6 +263,10 @@ export default class Game extends BaseGame {
 
         this.score += won;
 
+        if (this.score >= 20) {
+            this.score= 0
+        }
+        
         return this.score;
     }
 
@@ -352,6 +356,18 @@ export default class Game extends BaseGame {
         }
         return true;
     }
+    
+    dontTurnRight(key: number): boolean {
+        const lastDirection = Directions.peek();
+
+        if ((lastDirection === keys.UP && key === keys.RIGHT)
+            || (lastDirection === keys.DOWN && key === keys.LEFT)
+            || (lastDirection === keys.LEFT && key === keys.UP)
+            || (lastDirection === keys.RIGHT && key === keys.DOWN)) {
+            return false;
+        }
+        return true;
+    }
 
     setEvents(): void {
         document.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -412,7 +428,7 @@ export default class Game extends BaseGame {
                         }
                     }
 
-                    if (e.keyCode in keys && this.notBackwards(e.keyCode)) {
+                    if (e.keyCode in keys && this.notBackwards(e.keyCode) && this.dontTurnRight(e.keyCode)) {
                         if (Directions.peek() !== e.keyCode) {
                             Directions.set(e.keyCode);
                         } else {
