@@ -73,7 +73,7 @@ export default class Level {
      * @var {number} cols - this.garden.clientHeight és SIZE hányadosa, 
      * lefelé kerekítve 
      */
-    const cols: number = this.garden.clientHeight / SIZE;
+    const cols: number = Math.floor(this.garden.clientHeight / SIZE);
 
 
     /** 
@@ -81,7 +81,7 @@ export default class Level {
      * @var {number} rows - this.garden.clientWidth és SIZE hányadosa, 
      * lefelé kerekítve 
      */
-    const rows: number = this.garden.clientWidth / SIZE;
+    const rows: number = Math.floor(this.garden.clientWidth / SIZE);
 
 
     /** 
