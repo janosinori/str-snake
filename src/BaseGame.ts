@@ -21,9 +21,9 @@ export default abstract class BaseGame implements IBaseGame {
     tail: Piece;
     food: Piece | null = null;
     goldenApple: Piece | null = null;
-    length: number;
-    growth:number;
-    score:number;
+    length: number = 0;
+    growth:number = 0;
+    score:number = 0; 
     currentLevel:Level | null = null;
     garden: HTMLDivElement;
 
